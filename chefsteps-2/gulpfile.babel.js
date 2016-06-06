@@ -51,7 +51,7 @@ gulp.task('copy', () =>
     'node_modules/apache-server-configs/dist/.htaccess'
   ], {
     dot: true
-  }).pipe(gulp.dest('dist'))
+  }).pipe(gulp.dest('dist/public'))
     .pipe($.size({title: 'copy'}))
 );
 
@@ -90,7 +90,7 @@ gulp.task('styles', () => {
     .pipe(gulp.dest('.tmp/styles'))
     // Concatenate and minify styles
     .pipe($.if('*.css', $.cssnano()))
-    .pipe(gulp.dest('dist/styles'));
+    .pipe(gulp.dest('dist/public/styles'));
 });
 
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
@@ -109,7 +109,7 @@ gulp.task('scripts', () =>
       .pipe($.babel())
       .pipe(gulp.dest('.tmp/scripts'))
       .pipe($.concat('main.min.js'))
-      .pipe(gulp.dest('dist/scripts'))
+      .pipe(gulp.dest('dist/public/scripts'))
 );
 
 // Scan your HTML for assets & optimize them
@@ -133,7 +133,7 @@ gulp.task('html', () => {
       removeOptionalTags: true
     })))
     // Output files
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/public'));
 });
 
 // Clean output directory
@@ -164,14 +164,14 @@ gulp.task('serve', ['scripts', 'styles'], () => {
 gulp.task('serve:dist', ['default'], () =>
   browserSync({
     notify: false,
-    logPrefix: 'WSK',
+    logPrefix: 'ChefSteps',
     // Allow scroll syncing across breakpoints
     scrollElementMapping: ['main', '.mdl-layout'],
     // Run as an https by uncommenting 'https: true'
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: 'dist',
+    server: 'dist/public',
     port: 3001
   })
 );
@@ -180,7 +180,7 @@ gulp.task('serve:dist', ['default'], () =>
 gulp.task('default', ['clean'], cb =>
   runSequence(
     'styles',
-    ['lint', 'html', 'scripts', 'copy'],
+    [/*'lint', */'html', 'scripts', 'copy'],
     cb
   )
 );
