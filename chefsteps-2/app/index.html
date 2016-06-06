@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chefsteps Unique Email Lister</title>
+
+    <!-- Disable tap highlight on IE -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <!-- Web Application Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Chefsteps Unique Email Lister">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Chefsteps Unique Email Lister">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
+
+    <!-- Color the status bar on mobile devices -->
+    <meta name="theme-color" content="#2F3BA2">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <!-- Material Design Lite page styles:
+    You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
+    Format: material.color1-color2.min.css, some examples:
+    material.red-teal.min.css
+    material.blue-orange.min.css
+    material.purple-indigo.min.css
+    -->
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.3/material.light_green-orange.min.css" />
+    <!-- Material Design icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+    <!-- Your styles -->
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+    <div class="mdl-layout mdl-js-layout">
+      <header class="mdl-layout__header mdl-color--primary">
+        <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+          <h1 class="mdl-layout__title">Filter And Print Unique Emails</h1>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div id="overview">
+          <section class="section--center mdl-grid mdl-color--white mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--4-col-phone">
+              <p class="mdl-card__supporting-text">
+                 Enter the number of unique emails to use to generate the input list of 100000 emails (default to 50% of 100000), shuffle the list, instrument the code to calculate elapsed time for filtering unique emails from input set.
+              </p>
+              <div class="mdl-layout-spacer"></div>
+              <div class="flex-container">
+                <form action="#" class="flex-item">
+                  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="user-input" value="50000">
+                    <label class="mdl-textfield__label" for="user-input">Number of unique emails</label>
+                    <span class="mdl-textfield__error">Input is not a number!</span>
+                  </div>
+                  <button class="mdl-button mdl-js-button mdl-button--raised" id="btn-start">Click Me!</button>
+                </form>
+                <table class="mdl-data-table mdl-js-data-table flex-item">
+                  <thead>
+                    <tr>
+                      <th class="mdl-data-table__cell--non-numeric">Start Time</th>
+                      <th class="mdl-data-table__cell--non-numeric">End Time</th>
+                      <th class="mdl-data-table__cell--non-numeric">Elapsed Time</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td id="start-time" class="mdl-data-table__cell--non-numeric">-</td>
+                      <td id="end-time" class="mdl-data-table__cell--non-numeric">-</td>
+                      <td id="elapsed-time" class="mdl-data-table__cell--non-numeric">-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </section>
+        </div>
+        <footer class="mdl-mini-footer mdl-color--primary">
+          <div class="docs-footer">
+            <a href="https://github.com/yeshr">yeshr@github.com</a>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js"></script>
+    <!-- build:js scripts/main.min.js -->
+    <script src="scripts/polyfill.js"></script>
+    <script src="scripts/main.js"></script>
+    <!-- endbuild -->
+  </body>
+</html>
